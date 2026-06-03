@@ -1,0 +1,78 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import {
+  profile, experience, tools, certifications, education, expertise,
+} from "../data/resume.ts";
+---
+
+<BaseLayout title={`Experience — ${profile.name}`} description={`The professional experience of ${profile.name}, ${profile.title}.`}>
+  <section class="hero container" style="padding-bottom: 2rem;">
+    <span class="eyebrow reveal d1">Experience</span>
+    <h1 class="display reveal d2" style="font-size: clamp(2.4rem, 6vw, 4rem); max-width: 18ch;">
+      {profile.name}
+    </h1>
+    <p class="hero-sub reveal d3">{profile.title} · {profile.location}</p>
+    <div class="hero-actions reveal d4">
+      <a class="btn btn-primary" href={`mailto:${profile.email}`}>Get in touch</a>
+      <a class="btn btn-ghost" href={profile.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+
+  <!-- Roles -->
+  <section class="section container">
+    <div class="section-head"><h2>Professional experience</h2></div>
+    <div class="measure" style="max-width: 860px;">
+      {experience.map((role) => (
+        <article class="role">
+          <div class="role-top">
+            <div>
+              <div class="role-title">{role.title}</div>
+              <span class="role-org">{role.org}</span>
+              <span class="role-meta"> · {role.place}</span>
+            </div>
+            <span class="role-meta">{role.period}</span>
+          </div>
+          {role.note && <p class="role-note">{role.note}</p>}
+          <ul class="role-points">
+            {role.points.map((p) => <li>{p}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- Skills / tools / certs / education -->
+  <section class="section container">
+    <div class="meta-grid">
+      <div class="meta-block">
+        <h3>Areas of expertise</h3>
+        <ul class="list-clean">
+          {expertise.map((x) => <li>{x}</li>)}
+        </ul>
+      </div>
+
+      <div class="meta-block">
+        <h3>Tools & platforms</h3>
+        <div class="tag-row">
+          {tools.map((t) => <span class="tag">{t}</span>)}
+        </div>
+      </div>
+
+      <div class="meta-block">
+        <h3>Certifications</h3>
+        <ul class="list-clean">
+          {certifications.map((c) => <li>{c}</li>)}
+        </ul>
+      </div>
+
+      <div class="meta-block">
+        <h3>Education</h3>
+        <ul class="list-clean">
+          {education.map((e) => (
+            <li>{e.degree} — {e.school}, {e.place}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

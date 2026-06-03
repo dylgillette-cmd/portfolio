@@ -1,0 +1,23 @@
+---
+import { profile } from "../data/resume.ts";
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === "/" ? path === "/" : path.startsWith(href);
+---
+
+<header class="site-header">
+  <nav class="nav container" aria-label="Primary">
+    <a class="brand" href="/">
+      <svg width="20" height="14" viewBox="0 0 20 14" aria-hidden="true" style="overflow:visible;">
+        <path d="M0,14 L7,3 L11,9 L14,5 L20,14 Z" fill="currentColor" opacity="0.85"/>
+        <path d="M14,5 L20,14 L11,14 Z" class="peak" fill="var(--accent)"/>
+      </svg>
+      {profile.name}
+    </a>
+    <ul class="nav-links">
+      <li><a href="/" aria-current={isActive("/") ? "page" : undefined}>Home</a></li>
+      <li><a href="/writing" aria-current={isActive("/writing") ? "page" : undefined}>Writing</a></li>
+      <li><a href="/experience" aria-current={isActive("/experience") ? "page" : undefined}>Experience</a></li>
+    </ul>
+  </nav>
+</header>

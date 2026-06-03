@@ -1,0 +1,29 @@
+---
+// Clean layered alpine ridgeline. All colors pull from CSS variables
+// (--m1..--m4, --m-snow), so re-theming in global.css updates this too.
+---
+<svg viewBox="0 0 1200 360" preserveAspectRatio="xMidYMax meet" role="img"
+     aria-label="Layered mountain range">
+  <!-- soft sun / moon -->
+  <circle cx="930" cy="92" r="50" fill="var(--accent)" opacity="0.08" />
+
+  <!-- back ridge (lightest) -->
+  <path fill="var(--m1)"
+        d="M0,360 L0,205 L150,150 L320,212 L480,118 L650,205 L820,138 L1000,192 L1160,150 L1200,176 L1200,360 Z" />
+
+  <!-- mid ridge -->
+  <path fill="var(--m2)"
+        d="M0,360 L0,255 L180,205 L360,262 L540,192 L720,256 L900,200 L1080,256 L1200,222 L1200,360 Z" />
+
+  <!-- mid-front ridge -->
+  <path fill="var(--m3)"
+        d="M0,360 L0,300 L210,250 L410,308 L600,252 L640,260 L780,316 L980,262 L1200,300 L1200,360 Z" />
+
+  <!-- snow cap on the tallest mid peak (x≈540, y≈192) -->
+  <path fill="var(--m-snow)" opacity="0.92"
+        d="M540,192 L510,228 L524,222 L536,234 L548,221 L562,229 L570,224 Z" />
+
+  <!-- front ridge (pine, darkest) -->
+  <path fill="var(--m4)"
+        d="M0,360 L0,330 L260,288 L520,336 L760,300 L1010,338 L1200,310 L1200,360 Z" />
+</svg>

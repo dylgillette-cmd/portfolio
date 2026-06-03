@@ -1,0 +1,15 @@
+---
+import { profile } from "../data/resume.ts";
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <p>© {year} {profile.name} · {profile.location}</p>
+    <p>
+      <a href={`mailto:${profile.email}`}>{profile.email}</a>
+      &nbsp;·&nbsp;
+      <a href={profile.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+    </p>
+  </div>
+</footer>
